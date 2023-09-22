@@ -1,2 +1,2 @@
 # WatEvrKd07
-yay society
+fuck github (im annoyed)
