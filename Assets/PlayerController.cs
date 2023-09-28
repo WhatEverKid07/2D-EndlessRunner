@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D playerObject;
     public GameObject groundChecker;
     public LayerMask whatisground;
-
+    
     float maxSpeed = 5.0f;
     bool isOnGround = false;
 
@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+      
+
        //Fined the Rigibody2D component that is attached to the same object as this script
        playerObject = GetComponent<Rigidbody2D>();
 
@@ -33,12 +34,15 @@ public class PlayerController : MonoBehaviour
         //Create a 'float' that will equal to the players horizontal input
         
         float movementValueX = Input.GetAxis("Horizontal");
+        
 
         //Change the X velocity of the Rigidboady2D to be equal to the movement value
         playerObject.velocity = new Vector2(movementValueX *20, playerObject.velocity.y);
+        
 
         //Check to see if the ground object is touching the ground
         isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 1.0f, whatisground);
+
 
     }
 
