@@ -373,6 +373,7 @@ MonoBehaviour:
   whatisground:
     serializedVersion: 2
     m_Bits: 0
+  jumpSpeed: 8
 --- !u!50 &1569579623
 Rigidbody2D:
   serializedVersion: 4

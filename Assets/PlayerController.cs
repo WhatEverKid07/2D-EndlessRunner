@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D playerObject;
     public GameObject groundChecker;
     public LayerMask whatisground;
-    
+    public float jumpSpeed = 10.0f;
     float maxSpeed = 5.0f;
     bool isOnGround = false;
 
@@ -32,20 +32,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Create a 'float' that will equal to the players horizontal input
-        
+
         float movementValueX = Input.GetAxis("Horizontal");
-        
+
 
         //Change the X velocity of the Rigidboady2D to be equal to the movement value
-        playerObject.velocity = new Vector2(movementValueX *20, playerObject.velocity.y);
-        
+        playerObject.velocity = new Vector2(movementValueX * 20, playerObject.velocity.y);
+
 
         //Check to see if the ground object is touching the ground
         isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 1.0f, whatisground);
 
-
+        if (Input.GetButtonDown("Jump"))
+        {
+            playerObject.velocity = new Vector2(playerObject.velocity.x, jumpSpeed);
+        }
+        
     }
 
-    
-  
+
+
 }
