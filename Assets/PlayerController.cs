@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
       
-
+        
        //Fined the Rigibody2D component that is attached to the same object as this script
        playerObject = GetComponent<Rigidbody2D>();
       
@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
             jumping = true;
             jumpTime = 0;
+
+
         }
 
         if(jumping)

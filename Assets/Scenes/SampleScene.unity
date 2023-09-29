@@ -448,9 +448,9 @@ MonoBehaviour:
   groundChecker: {fileID: 521018676}
   whatisground:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   jumpSpeed: 14
-  maxSpeed: 8
+  maxSpeed: 11
   buttonTime: 0.3
 --- !u!50 &1569579623
 Rigidbody2D:
