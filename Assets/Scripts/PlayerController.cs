@@ -6,67 +6,77 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-   
-    private Rigidbody2D rb2D;
 
-    private float moveSpeed;
-    private float jumpForce;
-    private bool isJumping;
-    private float moveHorizontal;
-    private float moveVertical;
-    
+    public float speed = 5f;
+    public float jumpSpeed = 8f;
+    private float direction = 0f;
+    private Rigidbody2D playerObject;
+    bool isTouchingGround;
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask groundLayer;
+   
+    [Header("Jump System")]
+    [SerializeField] float fallMultiplier;
+    [SerializeField] float jumpMultiplier;
+    [SerializeField] float jumpTime;
+
+    Vector2 vecGravity;
+
+    bool isJumping;
+    float jumpCounter;
+
     // Start is called before the first frame update
     void Start()
     {
-
-        rb2D = gameObject.GetComponent<Rigidbody2D>();
-
-        moveSpeed = 2f;
-        jumpForce = 20f;
-        isJumping = false;
-
+        vecGravity = new Vector2(0, -Physics2D.gravity.y);
+        playerObject = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        moveHorizontal = Input.GetAxis("Horizontal");
-        moveVertical = Input.GetAxis("Vertical");
+        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         
-
-    }
-
-    void FixedUpdate()
-    {
-        if(moveHorizontal > 0.1f || moveHorizontal < -0.1f)
+        direction = Input.GetAxis("Horizontal");
+        
+        if(direction > 0f)
         {
-            rb2D.AddForce(new Vector2(moveHorizontal * 1, 0f), ForceMode2D.Impulse);
+            playerObject.velocity = new Vector2(direction * speed, playerObject.velocity.y);
+        }
+        else if (direction < 0f)
+        {
+            playerObject.velocity = new Vector2(direction * speed, playerObject.velocity.y);
+        }
+        else
+        {
+            playerObject.velocity = new Vector2(0, playerObject.velocity.y);
         }
 
-        if (!isJumping && moveVertical > 0.1f)
+
+
+        if (Input.GetButtonDown("Jump") && isTouchingGround)
         {
-            rb2D.AddForce(new Vector2(0f, 40f), ForceMode2D.Impulse);
-            rb2D.AddForce(new Vector3(0, 5, 0));
+            playerObject.velocity = new Vector2(playerObject.velocity.x, jumpSpeed);
+            isJumping = true;
+            jumpCounter = 0;
+        }
+        
+        if (playerObject.velocity.y>0 && isJumping)
+        {
+            jumpCounter += Time.deltaTime;
+            if(jumpCounter > jumpTime) isJumping = false;
+
+            playerObject.velocity += vecGravity * jumpMultiplier * Time.deltaTime;
         }
 
-    }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Platform")
+        if (Input.GetButtonUp("Jump"))
         {
             isJumping = false;
         }
 
-        
+       
     }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Platform")
-        {
-            isJumping = true;
-        }
-    }
+  
 }
