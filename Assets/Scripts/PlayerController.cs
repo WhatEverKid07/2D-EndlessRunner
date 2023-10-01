@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
+    public Animator animator;
    
     [Header("Jump System")]
     [SerializeField] float fallMultiplier;
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         
         direction = Input.GetAxis("Horizontal");
+
+        animator.SetFloat("speed", direction);
         
         if(direction > 0f)
         {
@@ -74,9 +77,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             isJumping = false;
+            animator.SetBool("isJumping", true);
         }
 
        
+    }
+
+    public void onLanding ()
+    {
+        animator.SetBool("isJumping", false);
     }
   
 }
