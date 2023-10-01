@@ -43,5 +43,8 @@ public class Spawner : MonoBehaviour
             timeToNextSpawn = Random.Range(minSpawnTime, maxSpawnTime);
             timeSinceLastSpawn = 0.0f;        
         }
+
+        
+
     }
 }

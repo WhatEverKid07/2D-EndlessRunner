@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         playerObject = GetComponent<Rigidbody2D>();
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
             playerObject.velocity = new Vector2(playerObject.velocity.x, jumpSpeed);
             isJumping = true;
             jumpCounter = 0;
+            animator.SetBool("isJumping", true);
         }
         
         if (playerObject.velocity.y>0 && isJumping)
@@ -80,12 +82,12 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", true);
         }
 
+        if (isTouchingGround == true)
+        {
+            animator.SetBool("isJumping", false);
+        }
        
     }
 
-    public void onLanding ()
-    {
-        animator.SetBool("isJumping", false);
-    }
   
 }
