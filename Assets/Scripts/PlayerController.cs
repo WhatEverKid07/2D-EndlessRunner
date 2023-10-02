@@ -64,7 +64,8 @@ public class PlayerController : MonoBehaviour
             playerObject.velocity = new Vector2(playerObject.velocity.x, jumpSpeed);
             isJumping = true;
             jumpCounter = 0;
-            animator.SetBool("isJumping", true);
+            isTouchingGround = false;
+            
         }
         
         if (playerObject.velocity.y>0 && isJumping)
@@ -85,6 +86,12 @@ public class PlayerController : MonoBehaviour
         if (isTouchingGround == true)
         {
             animator.SetBool("isJumping", false);
+        }
+
+        if (isTouchingGround == false)
+        {
+            animator.SetBool("isJumping", true);
+            animator.SetBool("isTouchingGround", false);
         }
        
     }
