@@ -13,6 +13,8 @@ public class Spawner : MonoBehaviour
     public float minSpawnTime = 0.5f;// minimum amount of time between spawning objects
     public float maxSpawnTime = 3.0f;// maximun amount of time between spawning objects
 
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class Spawner : MonoBehaviour
             timeSinceLastSpawn = 0.0f;        
         }
 
-        
+       
 
     }
 }
