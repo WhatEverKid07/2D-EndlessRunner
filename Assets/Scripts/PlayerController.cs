@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         direction = Input.GetAxis("Horizontal");
 
         animator.SetFloat("speed", direction);
+
         
         if(direction > 0f)
         {
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", true);
             animator.SetBool("isTouchingGround", false);
         }
-       
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
