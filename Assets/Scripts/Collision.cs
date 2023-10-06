@@ -6,21 +6,9 @@ public class Collision : MonoBehaviour
 {
     public Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player");
+        if (collision.gameObject.tag == "Player");
         {
             animator.SetBool("playercollided", true);
         }
