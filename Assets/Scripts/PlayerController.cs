@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     bool isJumping;
     float jumpCounter;
 
+    private int coinScore = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,5 +98,15 @@ public class PlayerController : MonoBehaviour
        
     }
 
-  
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Coin")
+        {
+            coinScore += 1;
+            Debug.Log(coinScore);
+            collision.gameObject.SetActive(false);
+        }
+    }
+
+
 }

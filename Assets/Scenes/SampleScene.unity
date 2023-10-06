@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 482242001}
   m_Layer: 0
   m_Name: Coin Animation
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,7 +373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482241997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 97.5527, y: -1.2527, z: 0}
+  m_LocalPosition: {x: 97.5527, y: -3.17, z: 0}
   m_LocalScale: {x: 8.763662, y: 8.763662, z: 8.763662}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -409,12 +409,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.27
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,7 +1259,7 @@ GameObject:
   - component: {fileID: 1569579628}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1450,7 +1450,8 @@ GameObject:
   - component: {fileID: 1623600886}
   - component: {fileID: 1623600885}
   - component: {fileID: 1623600889}
-  m_Layer: 7
+  - component: {fileID: 1623600890}
+  m_Layer: 0
   m_Name: vending machine00
   m_TagString: VendingMachine
   m_Icon: {fileID: 0}
@@ -1538,7 +1539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623600884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122.29, y: -6.59, z: 0}
+  m_LocalPosition: {x: 148.74, y: -10.49, z: 0}
   m_LocalScale: {x: 8.94335, y: 8.94335, z: 8.94335}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1577,7 +1578,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0023712516, y: -0.035568535}
+  m_Offset: {x: 0.0010357201, y: -0.038975775}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1588,8 +1589,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66328347, y: 0.9329448}
+  m_Size: {x: 0.84727246, y: 1.0896765}
   m_EdgeRadius: 0
+--- !u!114 &1623600890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623600884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b54031f68c6a3429c7426df0466d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &1658686748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,18 +2194,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &2146602428
-Transform:
+--- !u!224 &2146602428
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146602426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.6, y: 0, z: -1.79}
+  m_LocalPosition: {x: 0, y: 0, z: -1.79}
   m_LocalScale: {x: 7.52535, y: 7.52535, z: 7.52535}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 61.6, y: 0}
+  m_SizeDelta: {x: 25, y: 4.0039062}
+  m_Pivot: {x: 0.5, y: 0.5}

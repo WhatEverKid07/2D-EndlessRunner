@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - VendingMachine
+  - Coin
   layers:
   - Default
   - TransparentFX
