@@ -3,19 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
 
     public float speed = 5f;
     public float jumpSpeed = 8f;
-    private float direction = 0f;
+    private float direction = 1f;
     private Rigidbody2D playerObject;
     bool isTouchingGround;
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     public Animator animator;
+    public Transform CoinScore;
    
     [Header("Jump System")]
     [SerializeField] float fallMultiplier;
@@ -42,7 +44,8 @@ public class PlayerController : MonoBehaviour
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         
-        direction = Input.GetAxis("Horizontal");
+
+        //direction = Input.GetAxis("Horizontal");
 
         animator.SetFloat("speed", direction);
 
@@ -104,14 +107,14 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Coin")
         {
             coinScore += 5;
-            Debug.Log(coinScore);
+            result CoinScore;
             collision.gameObject.SetActive(false);
         }
 
         if (collision.tag == "VendingMachine")
         {
             coinScore += 15;
-            Debug.Log(coinScore);
+            result CoinScore;
         }
     }
 
