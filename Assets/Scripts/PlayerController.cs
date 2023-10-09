@@ -101,10 +101,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isTouchingGround", false);
         }
 
-        if 
-        {
-            
-        }
 
     }
 
