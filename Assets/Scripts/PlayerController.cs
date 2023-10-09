@@ -107,14 +107,14 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Coin")
         {
             coinScore += 5;
-            result CoinScore;
+            Debug.Log(coinScore);
             collision.gameObject.SetActive(false);
         }
 
         if (collision.tag == "VendingMachine")
         {
             coinScore += 15;
-            result CoinScore;
+            Debug.Log(coinScore);
         }
     }
 
