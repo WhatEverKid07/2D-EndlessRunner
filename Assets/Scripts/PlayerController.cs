@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public Animator animator;
     public Transform CoinScore;
-   
+
     [Header("Jump System")]
     [SerializeField] float fallMultiplier;
     [SerializeField] float jumpMultiplier;
@@ -100,6 +101,11 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isTouchingGround", false);
         }
 
+        if 
+        {
+            
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -116,6 +122,7 @@ public class PlayerController : MonoBehaviour
             coinScore += 15;
             Debug.Log(coinScore);
         }
+
     }
 
 
