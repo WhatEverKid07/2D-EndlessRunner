@@ -19,11 +19,14 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public Animator animator;
     public Transform CoinScore;
+    
 
     [Header("Jump System")]
     [SerializeField] float fallMultiplier;
     [SerializeField] float jumpMultiplier;
     [SerializeField] float jumpTime;
+
+    AudioManager audioManager;
 
     Vector2 vecGravity;
 
@@ -31,6 +34,11 @@ public class PlayerController : MonoBehaviour
     float jumpCounter;
 
     private int coinScore = 0;
+
+    private void Awake()
+    {
+        audioManager = GetComponent<AudioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -88,11 +96,13 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             animator.SetBool("isJumping", true);
+            audioManager.PlaySFX(audioManager.jump);
         }
 
         if (isTouchingGround == true)
         {
-            animator.SetBool("isJumping", false);
+           animator.SetBool("isJumping", false);
+           audioManager.PlaySFX(audioManager.running);
         }
 
         if (isTouchingGround == false)
