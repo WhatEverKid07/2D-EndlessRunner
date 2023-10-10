@@ -15,10 +15,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip mainMenuMusic;
     public AudioClip running;
 
-    private void Start()
+    private void Update()
     {
-        musicSource.clip = background;
-        musicSource.Play();
+        //musicSource.clip = background;
+       // musicSource.Play();
     }
 
     public void PlaySFX(AudioClip clip)

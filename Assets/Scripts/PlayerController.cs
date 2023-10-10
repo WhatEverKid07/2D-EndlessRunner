@@ -37,12 +37,13 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         playerObject = GetComponent<Rigidbody2D>();
     }
@@ -96,13 +97,11 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             animator.SetBool("isJumping", true);
-            audioManager.PlaySFX(audioManager.jump);
         }
 
         if (isTouchingGround == true)
         {
            animator.SetBool("isJumping", false);
-           audioManager.PlaySFX(audioManager.running);
         }
 
         if (isTouchingGround == false)
