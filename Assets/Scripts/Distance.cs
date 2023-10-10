@@ -9,6 +9,6 @@ public class Distance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceScore.text = player.position.x.ToString();
+        distanceScore.text = player.position.x.ToString("0");
     }
 }
