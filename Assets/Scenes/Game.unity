@@ -583,8 +583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn:
   - {fileID: 3844059120377605009, guid: 375eab467c1cad24097344d5da716407, type: 3}
-  minSpawnTime: 10
-  maxSpawnTime: 5
+  minSpawnTime: 5
+  maxSpawnTime: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,8 +1226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn:
   - {fileID: 3844059120377605009, guid: 375eab467c1cad24097344d5da716407, type: 3}
-  minSpawnTime: 15
-  maxSpawnTime: 10
+  minSpawnTime: 10
+  maxSpawnTime: 5
 --- !u!1 &837961169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,5 +3294,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn:
   - {fileID: 3844059120377605009, guid: 375eab467c1cad24097344d5da716407, type: 3}
-  minSpawnTime: 20
-  maxSpawnTime: 15
+  minSpawnTime: 15
+  maxSpawnTime: 10
