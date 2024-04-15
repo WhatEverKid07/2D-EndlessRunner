@@ -6,9 +6,10 @@ public class Distance : MonoBehaviour
     public Transform player;
     public Text distanceScore;
 
-    // Update is called once per frame
     void Update()
     {
-        distanceScore.text = player.position.x.ToString("0");
+        int tensDigit = Mathf.RoundToInt(player.position.x / 10f);
+
+        distanceScore.text = tensDigit.ToString();
     }
 }

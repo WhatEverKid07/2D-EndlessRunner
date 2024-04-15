@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    private float lengh, startpos;
     public GameObject cam;
     public float parallaxEffect;
-
+    private float lengh, startpos;
     void Start ()
     {
         startpos = transform.position.x;
         lengh = GetComponent<SpriteRenderer>().bounds.size.x;
     }
-
     void Update()
     {
         float temp = (cam.transform.position.x * (1 - parallaxEffect));
@@ -26,7 +24,6 @@ public class Parallax : MonoBehaviour
         {
             startpos += lengh;
         }
-
         else if (temp < startpos - lengh)
         {
             startpos -= lengh;

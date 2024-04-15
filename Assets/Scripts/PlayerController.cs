@@ -8,55 +8,43 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    AudioManager audioManager;
+    Vector2 vecGravity;
 
-    public float speed = 5f;
-    public float jumpSpeed = 8f;
-    private float direction = 1f;
-    private Rigidbody2D playerObject;
-    bool isTouchingGround;
+    public float speed;
+    public float jumpSpeed;
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     public Animator animator;
     public Transform CoinScore;
-    
+
+    private Rigidbody2D playerObject;
+    private bool isTouchingGround;
+    private float direction = 1f;
+    private int coinScore = 0; 
+    private bool isJumping;
+    private float jumpCounter;
 
     [Header("Jump System")]
     [SerializeField] float fallMultiplier;
     [SerializeField] float jumpMultiplier;
     [SerializeField] float jumpTime;
 
-    AudioManager audioManager;
-
-    Vector2 vecGravity;
-
-    bool isJumping;
-    float jumpCounter;
-
-    private int coinScore = 0;
-
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         playerObject = GetComponent<Rigidbody2D>();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        
-
-        //direction = Input.GetAxis("Horizontal");
-
         animator.SetFloat("speed", direction);
 
         

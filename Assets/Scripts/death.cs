@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class death : MonoBehaviour
 {
-
-
+    public int deathScene;
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision.tag == "Player"){
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(deathScene);
         }
     }
-
 }
