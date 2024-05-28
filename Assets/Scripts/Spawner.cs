@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject[] objectToSpawn;
+    public GameObject coin;
+    public GameObject vendingMachine;
 
     float timeToNextSpawn;
+    float timeToNextCoinSpawn;
+    float timeToNextVendingMachineSpawn;
     float timeSinceLastSpawn = 0.0f;
 
     public float minSpawnTime = 0.5f;
@@ -28,7 +33,22 @@ public class Spawner : MonoBehaviour
             Instantiate(objectToSpawn[selection], transform.position, Quaternion.identity);
 
             timeToNextSpawn = Random.Range(minSpawnTime, maxSpawnTime);
-            timeSinceLastSpawn = 0.0f;        
+            timeSinceLastSpawn = 0.0f;
+            Debug.Log(timeSinceLastSpawn);
+        }
+        if (timeSinceLastSpawn == 0.0f)
+        {
+            timeToNextCoinSpawn = Random.Range(0, 8);
+            timeToNextVendingMachineSpawn = Random.Range(0, 5);
+
+            if (timeToNextVendingMachineSpawn == 0)
+            {
+                Instantiate(vendingMachine, transform.position + new Vector3(0, 5, 0), Quaternion.identity);
+            }
+            if (timeToNextCoinSpawn == 1)
+            {
+                Instantiate(coin, transform.position + new Vector3(0, 2.5f, 0), Quaternion.identity);
+            }
         }
     }
 }

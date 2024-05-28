@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    AudioManager audioManager;
+    //AudioManager audioManager;
     Vector2 vecGravity;
 
     public float speed;
@@ -17,7 +17,12 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     public Animator animator;
-    public Transform CoinScore;
+    public Text coinScoreText;
+
+    public AudioSource jump;
+    public AudioSource coinCollection;
+    public AudioSource running;
+    public AudioSource vendingMachineExplosion;
 
     private Rigidbody2D playerObject;
     private bool isTouchingGround;
@@ -30,14 +35,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float fallMultiplier;
     [SerializeField] float jumpMultiplier;
     [SerializeField] float jumpTime;
-
+    /*
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
-
+    */
     void Start()
     {
+        running.Play();
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         playerObject = GetComponent<Rigidbody2D>();
     }
@@ -65,11 +71,12 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isTouchingGround)
         {
+            jump.Play();
+            running.Pause();
             playerObject.velocity = new Vector2(playerObject.velocity.x, jumpSpeed);
             isJumping = true;
             jumpCounter = 0;
             isTouchingGround = false;
-            
         }
         
         if (playerObject.velocity.y>0 && isJumping)
@@ -79,8 +86,6 @@ public class PlayerController : MonoBehaviour
 
             playerObject.velocity += vecGravity * jumpMultiplier * Time.deltaTime;
         }
-
-
         if (Input.GetButtonUp("Jump"))
         {
             isJumping = false;
@@ -89,7 +94,8 @@ public class PlayerController : MonoBehaviour
 
         if (isTouchingGround == true)
         {
-           animator.SetBool("isJumping", false);
+            animator.SetBool("isJumping", false);
+            running.UnPause();
         }
 
         if (isTouchingGround == false)
@@ -97,26 +103,25 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", true);
             animator.SetBool("isTouchingGround", false);
         }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Coin")
         {
+            coinCollection.Play();
             coinScore += 5;
+            coinScoreText.text = coinScore.ToString();
             Debug.Log(coinScore);
             collision.gameObject.SetActive(false);
         }
 
         if (collision.tag == "VendingMachine")
         {
+            vendingMachineExplosion.Play();
             coinScore += 15;
+            coinScoreText.text = coinScore.ToString();
             Debug.Log(coinScore);
         }
-
     }
-
-
 }
