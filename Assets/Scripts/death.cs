@@ -9,6 +9,7 @@ public class death : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision.tag == "Player"){
             SceneManager.LoadScene(deathScene);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }

@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Text coinScoreText;
 
+    public static int coinScoreStatic;
+
     public AudioSource jump;
     public AudioSource coinCollection;
     public AudioSource running;
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerObject;
     private bool isTouchingGround;
     private float direction = 1f;
-    private int coinScore = 0; 
+    private int coinScore = 1; 
     private bool isJumping;
     private float jumpCounter;
 
@@ -103,6 +105,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", true);
             animator.SetBool("isTouchingGround", false);
         }
+        coinScoreStatic = coinScore;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

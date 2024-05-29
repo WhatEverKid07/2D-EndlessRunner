@@ -374,10 +374,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 2033237589}
   m_HandleRect: {fileID: 1316008405}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: -20
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -803,6 +803,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500264932}
   m_CullTransparentMesh: 1
+--- !u!1 &525695488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525695489}
+  - component: {fileID: 525695490}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &525695489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525695488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1181.9968, y: 660.4097, z: -4.9947205}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &525695490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525695488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc159ecb8495f21499419fbcbecf77f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSound: {fileID: 1312370392}
+  musicSlider: {fileID: 1594006567}
+  SFX_Slider: {fileID: 187583192}
+  allAudioSliderVolume: 0
+  musicSliderVolume: 0
+  SFX_SliderVolume: 0
+  musicMixer: {fileID: 24100000, guid: be418f0c8f639fa4e8b1c553e3ead57c, type: 2}
+  isGameScene: 0
 --- !u!1 &608019197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,10 +1962,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1530952850}
   m_HandleRect: {fileID: 1264836307}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: -45
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2491,10 +2543,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 332457132}
   m_HandleRect: {fileID: 1997572090}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: -20
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2543,6 +2595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f5c9acdd6de3c41a43fdf7c5454a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockCurser: 1
 --- !u!82 &1627304096
 AudioSource:
   m_ObjectHideFlags: 0
