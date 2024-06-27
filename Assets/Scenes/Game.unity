@@ -4584,6 +4584,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8643fefaf8ff2d24ba960f0dad6b994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keys:
+  - keyCode: 120
+  - keyCode: 118
+  - keyCode: 98
+  - keyCode: 101
+  - keyCode: 104
+  - keyCode: 109
+  - keyCode: 122
+  - keyCode: 99
   speed: 20
   jumpSpeed: 40
   groundCheck: {fileID: 521018677}

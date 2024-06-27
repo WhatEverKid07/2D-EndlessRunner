@@ -6,10 +6,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class Key
+{
+    public KeyCode keyCode;
+}
 public class PlayerController : MonoBehaviour
 {
-    //AudioManager audioManager;
     Vector2 vecGravity;
+
+    public List<Key> keys = new List<Key>();
 
     public float speed;
     public float jumpSpeed;
@@ -29,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerObject;
     private bool isTouchingGround;
     private float direction = 1f;
-    private int coinScore = 1; 
+    private int coinScore = 1;
     private bool isJumping;
     private float jumpCounter;
 
@@ -55,8 +61,8 @@ public class PlayerController : MonoBehaviour
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         animator.SetFloat("speed", direction);
 
-        
-        if(direction > 0f)
+
+        if (direction > 0f)
         {
             playerObject.velocity = new Vector2(direction * speed, playerObject.velocity.y);
         }
@@ -70,29 +76,33 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
-        if (Input.GetButtonDown("Jump") && isTouchingGround)
+        foreach (Key key in keys)
         {
-            jump.Play();
-            running.Pause();
-            playerObject.velocity = new Vector2(playerObject.velocity.x, jumpSpeed);
-            isJumping = true;
-            jumpCounter = 0;
-            isTouchingGround = false;
+            if (Input.GetKeyDown(key.keyCode) && isTouchingGround)
+            {
+                jump.Play();
+                running.Pause();
+                playerObject.velocity = new Vector2(playerObject.velocity.x, jumpSpeed);
+                isJumping = true;
+                jumpCounter = 0;
+                isTouchingGround = false;
+            }
+            if (Input.GetKeyUp(key.keyCode))
+            {
+                isJumping = false;
+                animator.SetBool("isJumping", true);
+            }
         }
-        
-        if (playerObject.velocity.y>0 && isJumping)
+
+
+        if (playerObject.velocity.y > 0 && isJumping)
         {
             jumpCounter += Time.deltaTime;
-            if(jumpCounter > jumpTime) isJumping = false;
+            if (jumpCounter > jumpTime) isJumping = false;
 
             playerObject.velocity += vecGravity * jumpMultiplier * Time.deltaTime;
         }
-        if (Input.GetButtonUp("Jump"))
-        {
-            isJumping = false;
-            animator.SetBool("isJumping", true);
-        }
+
 
         if (isTouchingGround == true)
         {
