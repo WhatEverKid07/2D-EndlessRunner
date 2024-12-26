@@ -1,8 +1,0 @@
-title: My Jekyll Site
-description: Welcome to my GitHub Pages-powered Jekyll site.
-baseurl: "" # Leave this empty for GitHub Pages root
-url: "https://yourusername.github.io" # Replace with your GitHub Pages URL
-theme: minima # You can replace this with another supported theme
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
