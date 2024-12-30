@@ -7,14 +7,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
-
     <style>
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Global Styles */
         body {
             font-family: "Silkscreen", serif;
             line-height: 1.6;
@@ -23,13 +24,13 @@
             padding: 20px;
         }
 
+        /* Header Styles */
         header {
             text-align: center;
             margin-bottom: 40px;
         }
 
             header h1 {
-                font-family: "Silkscreen", serif;
                 font-size: 2.5rem;
                 margin-bottom: 10px;
             }
@@ -39,6 +40,7 @@
                 color: #555;
             }
 
+        /* Main Content */
         main {
             max-width: 800px;
             margin: 0 auto;
@@ -49,7 +51,6 @@
         }
 
             section h2 {
-                font-family: "Silkscreen", serif;
                 font-size: 2rem;
                 margin-bottom: 10px;
                 color: #444;
@@ -59,42 +60,60 @@
                 margin-bottom: 20px;
             }
 
+        /* Footer Styles */
         footer {
             text-align: center;
             margin-top: 40px;
             font-size: 0.9rem;
             color: #777;
         }
-    </style>
 
+        /* Links */
+        a {
+            color: lightblue;
+            text-decoration: none;
+        }
+
+            a:hover {
+                color: red;
+            }
+
+        /* Custom Classes */
+        .thick-underline {
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Razzles Run</h1>
-        <p>A simple customizable website powered by GitHub Pages</p>
+        <p>An endless runner game assigned as a first project.</p>
     </header>
 
     <main>
         <section>
             <h2>About</h2>
-            <p>This is a basic template to help you get started with your website. You can edit the content, styles, and layout to suit your needs.</p>
+            <p>This was our first college project, where we were tasked with creating a solo endless runner. Each aspect of the game had to be developed individually.</p>
         </section>
 
         <section>
-            <h2>Features</h2>
-            <p>- Fully customizable</p>
-            <p>- Powered by GitHub Pages</p>
-            <p>- Uses modern web technologies</p>
+            <h2>Process</h2>
+            <p>
+                <span class="thick-underline">Art/Visuals:</span> I used Photoshop for backgrounds, buttons, and static images, and Piskel (a simpler online alternative to Aseprite) for animations.
+            </p>
+            <p>
+                <span class="thick-underline">Sound/Music:</span> We used BandLab to create background music, which suited my limited music-making skills. For sound effects, I either recorded my own or sourced them online, editing them with Audacity.
+            </p>
+            <p>
+                <span class="thick-underline">Code:</span> At the start of this project, I had no prior programming experience. Initially challenging, programming became enjoyable, and I steadily improved my skills as the project progressed.
+            </p>
         </section>
 
         <section>
             <h2>Contact</h2>
-            <p>Feel free to reach out with questions or feedback!</p>
+            <p>Feel free to check out my <a href="https://eugeniocl.wixsite.com/eclgamesdesign" target="_blank">portfolio</a> for links to get in touch!</p>
         </section>
     </main>
-
-    <footer>
-        <p>© 2024 My Custom Website. All rights reserved.</p>
-    </footer>
 </body>
 </html>
