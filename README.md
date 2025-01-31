@@ -6,7 +6,7 @@ My first ever project in Unity, remastered 6 months later.
 
 ## How to play
 
-Just doesnload the latest release and run the .exe. Note: Windows only.
+Just Download the latest release and run the .exe. Note: Windows only.
 
 
 ## Run in Unity
